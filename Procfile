@@ -1,0 +1,1 @@
+web: gunicorn <django-habit-tracker-efoley326>.wsgi
