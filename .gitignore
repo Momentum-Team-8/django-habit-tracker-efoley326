@@ -105,7 +105,6 @@ celerybeat-schedule
 
 # Mr Developer
 .mr.developer.cfg
-.project
 .pydevproject
 
 # mkdocs documentation
