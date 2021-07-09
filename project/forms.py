@@ -1,11 +1,8 @@
-from django.forms import ModelForm
+from django import forms
 from .models import habitEntry
 
 
-class enterHabit(ModelForm):
+class habitForm(forms.ModelForm):
     class Meta:
         model = habitEntry
-        fields = [
-            'habit',
-            'amount',
-        ]
+        fields = ('habit', 'amount',)

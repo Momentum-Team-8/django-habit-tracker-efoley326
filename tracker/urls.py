@@ -21,5 +21,5 @@ from project import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('registration.backends.default.urls')),
-    path('project/', views.habitEntry),
+    path('project/', views.habitForm),
 ]
