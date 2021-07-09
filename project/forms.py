@@ -1,13 +1,11 @@
 from django.forms import ModelForm
-from .models import Tracker
+from .models import habitEntry
 
 
 class enterHabit(ModelForm):
-
     class Meta:
-        model = Tracker
+        model = habitEntry
         fields = [
             'habit',
-            'date',
             'amount',
         ]
