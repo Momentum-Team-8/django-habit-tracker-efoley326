@@ -13,18 +13,17 @@ class User(AbstractUser):
 
 
 class habitEntry(ModelForm):
-    class Meta:
         user = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name="entry")
         habit = models.CharField(max_length=255)
         amount = models.CharField(max_length=255, null=True, blank=True)
-        created_at = models.DateTimeField(auto_now_add=True)
 
-    def __repr__(self):
-        return {
-            self.habit,
-            self.amount,
-            self.created_at,
+def __repr__(self):
+    return {
+        self.habit,
+        self.amount,
+        self.created_at,
         }
 
-    def __str__(self):
-        return {self.habit}
+def __str__(self):
+    return {self.habit}
+

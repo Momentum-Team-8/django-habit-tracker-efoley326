@@ -12,7 +12,7 @@
         <div class="habit_form">
             <form action="{% 'habitForm' %}" method="POST">
                 {% csrf_token %}
-                {{ form.as_p }}
+                {{ habitEntry.as_p }}
                 <input type="submit" value="Submit">
             </form>
         </div>
