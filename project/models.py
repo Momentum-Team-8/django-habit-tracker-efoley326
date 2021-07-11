@@ -12,15 +12,15 @@ class User(AbstractUser):
         return self.username
 
 
-class habitEntry(ModelForm):
+class habitEntry(models.Model):
         user = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name="entry")
         habit = models.CharField(max_length=255)
         amount = models.CharField(max_length=255, null=True, blank=True)
 
 def __repr__(self):
     return {
-        self.habit,
-        self.amount,
+        "habit": self.habit,
+        "amount": self.amount,
         }
 
 def __str__(self):
