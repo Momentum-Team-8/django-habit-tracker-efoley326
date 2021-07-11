@@ -21,7 +21,6 @@ def __repr__(self):
     return {
         self.habit,
         self.amount,
-        self.created_at,
         }
 
 def __str__(self):
