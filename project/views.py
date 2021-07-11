@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.utils import timezone
-import datetime
-from django.http import HttpResponse
+from django.shortcuts import render
+from django.http import HttpResponseRedirect
 from .forms import habitForm
 
 # Create your views here.
@@ -10,5 +10,11 @@ def homepage(request):
         return render(request, "project/template/tracker.html")
 
 def habitForm(request):
-    form = habitForm()
-    return render(request, 'project/tracker.html', {'form': form})
+    if request.method == 'POST':
+        form = habitForm(request.POST)
+        if form.is_valid():
+
+            return HttpResponseRedirect ('/habit-list/')
+    else: form = habitForm()
+            
+    return render (request, 'project/tracker.html', {'form': form})
