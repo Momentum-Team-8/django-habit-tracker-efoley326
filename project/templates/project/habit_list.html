@@ -1,0 +1,23 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<head>
+    <title>habitForm</title>
+</head>
+
+<body>
+    <h1 class="headline">habitForm™️</h1>
+    <h4 class="user_greeting">("Hello, " + {{ models.user }})</h4>
+        <div class="habit_form">
+            <form action="{% 'habitForm' %}" method="POST">
+                {% csrf_token %}
+                {{ HabitEntry.as_p }}
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <div>
+            <button type="submit">Add Habit</button>
+        </div>
+</body>
+{% endblock %}
