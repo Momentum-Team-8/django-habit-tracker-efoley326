@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from django.forms.models import ModelForm
-from tracker.settings import TIME_ZONE
+from django.utils import timezone
 
 
 class User(AbstractUser):
@@ -12,17 +11,20 @@ class User(AbstractUser):
         return self.username
 
 
-class habitEntry(models.Model):
-        user = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name="entry")
-        habit = models.CharField(max_length=255)
-        amount = models.CharField(max_length=255, null=True, blank=True)
+class HabitEntry(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    habit = models.CharField(max_length=255)
+    amount = models.CharField(max_length=255, null=True, blank=True)
 
-def __repr__(self):
-    return {
-        "habit": self.habit,
-        "amount": self.amount,
-        }
+    def save (self, args, kwargs):
+        super().save(args, kwargs)
 
-def __str__(self):
-    return {self.habit}
+    def __str__(self):
+        return {self.habit}
+class HabitList(models.Model):
+    name = models.CharField(max_length=256)
+    
+    def __str__ (self):
+        return self.name
+
 

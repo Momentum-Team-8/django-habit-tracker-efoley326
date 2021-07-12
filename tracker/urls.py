@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('registration.backends.default.urls')),
     path('project/', views.habitForm),
+    path('project/', views.habitList, )
 ]

@@ -1,12 +1,11 @@
 from django.forms import ModelForm
-from .models import habitEntry
+from .models import HabitEntry
 
 
-class habitForm(ModelForm):
+class HabitForm(ModelForm):
     class Meta:
-        model = habitEntry
+        model = HabitEntry
         fields = [
-            'user',
             'habit', 
             'amount',
         ]
