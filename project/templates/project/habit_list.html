@@ -10,9 +10,8 @@
     <h1 class="headline">habitForm™️</h1>
     <h4 class="user_greeting">("Hello, " + {{ models.user }})</h4>
         <div class="habit_form">
-            <form action="{% 'HabitForm' %}" method="POST">
                 {% csrf_token %}
-                {{ HabitEntry.as_p }}
+                {{ form.as_p }}
                 <input type="submit" value="Submit">
             </form>
         </div>

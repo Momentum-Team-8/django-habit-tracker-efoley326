@@ -4,12 +4,12 @@
 
 <h1>Add Habit</h1>
 <div>
-<form action="{% url 'habit_list.html' %}" method="POST">
+<form action="{% url 'add_habit' %}" method="POST">
     {% csrf_token %}
     {{ form.as_p }}
-    <div>
+<div>
     <button type="submit">Add Habit</button>
-    </div>
+</div>
 </form>
 </div>
 {% endblock %}

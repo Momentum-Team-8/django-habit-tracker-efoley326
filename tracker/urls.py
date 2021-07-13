@@ -8,7 +8,7 @@ urlpatterns = [
     path('accounts/', include('registration.backends.default.urls')),
     path('', views.homepage, name='homepage'),
     path('project/', views.habit_list, name='habit_list'),
-    path('project/add_habit/add/', views.add_habit, name='add_habit'),
+    path('project/', views.add_habit, name='add_habit'),
     ]
 
 if settings.DEBUG:
