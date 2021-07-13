@@ -9,12 +9,12 @@ from .models import HabitEntry
 # Create your views here.
 def homepage(request):
     if request.user.is_authenticated:
-        return render(request, "project/template/tracker.html")
+        return render(request, "project/add_habit.html")
 
 def habit_list(request):
     user = request.user
     habits = HabitEntry.objects.all()
-    return render (request, "habits/tracker.html")
+    return render (request, "add_habit.html")
 
 def add_habit(request):
     if request.method == 'POST':
@@ -22,5 +22,4 @@ def add_habit(request):
         if form.is_valid():
             return render (HabitEntry)
     else: form = HabitForm()
-    return render (request, 'habits/habit_list.html', {'form': form})
-
+    return render (request, 'habit_list.html', {'form': form})

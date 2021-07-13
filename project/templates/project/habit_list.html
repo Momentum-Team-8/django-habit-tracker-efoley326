@@ -1,16 +1,16 @@
-{% extends "index.html" %}
+{% extends "base.html" %}
 
 {% block content %}
 
 <head>
-    <title>habitForm</title>
+    <title>HabitForm</title>
 </head>
 
 <body>
     <h1 class="headline">habitForm™️</h1>
     <h4 class="user_greeting">("Hello, " + {{ models.user }})</h4>
         <div class="habit_form">
-            <form action="{% 'habitForm' %}" method="POST">
+            <form action="{% 'HabitForm' %}" method="POST">
                 {% csrf_token %}
                 {{ HabitEntry.as_p }}
                 <input type="submit" value="Submit">
@@ -20,4 +20,5 @@
             <button type="submit">Add Habit</button>
         </div>
 </body>
+
 {% endblock %}

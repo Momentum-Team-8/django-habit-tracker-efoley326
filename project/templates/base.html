@@ -1,3 +1,5 @@
+{% block content %}
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,8 +8,7 @@
 
 
 <body>
-
-        <h1>HabitForm</h1>
+    <h1>HabitForm</h1>
 
     <div class="container">
         {% if user.is_authenticated %}
@@ -17,7 +18,7 @@
         <a href="{% url 'auth_login' %}" class="">Login</a>
         {% endif %}
     </div>
-        {% block content %}
-        {% endblock %}
     </body>
     </html>
+
+    {% endblock %}
