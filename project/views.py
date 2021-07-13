@@ -10,18 +10,21 @@ def homepage(request):
     if request.user.is_authenticated:
         return render(request, "base.html")
 
+@login_required
 def habit_list(request):
     user = request.user
     habits = HabitEntry.objects.all()
-    return render (request, "project/add_habit.html")
+    return render (request, "project/habit_list.html")
 
+@login_required
 def add_habit(request):
-    if request.method == 'GET':
-        form = HabitForm()
-    else:
-        form = HabitForm(data=request.POST)
+    if request.method == 'POST':
+        form = HabitForm(request.POST)
         if form.is_valid():
-            habit = form.save()
+            habit = form.save(commit=False)
+            habit.created_date = timezone.now()
             habit.save()
-            return redirect(to=habit_list)
+            return redirect('add_habit')
+    else:
+        form = HabitForm()
     return render(request, 'project/add_habit.html', {'form': form})

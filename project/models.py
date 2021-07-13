@@ -15,9 +15,7 @@ class HabitEntry(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     habit = models.CharField(max_length=255)
     amount = models.CharField(max_length=255, null=True, blank=True)
-
-    def save (self, args, kwargs):
-        super().save(args, kwargs)
+    created_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return {self.habit}

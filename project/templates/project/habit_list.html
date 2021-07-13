@@ -7,16 +7,18 @@
 </head>
 
 <body>
-    <h1 class="headline">habitForm™️</h1>
-    <h4 class="user_greeting">("Hello, " + {{ models.user }})</h4>
-        <div class="habit_form">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <input type="submit" value="Submit">
-            </form>
-        </div>
+    <h1 class="headline">HabitForm</h1>
+<div>
+    <h4 class="user_greeting">Hello,  {{ user }}!</h4>
+</div>
+    {% for habit in habits %}
+<div class="box">
+<p>Habit: {{habits.habit}}</p>
+<p>Duration: {{habits.amount}}</p>
+<p>Created on:{{habits.created_date}}</p>
+</div>
         <div>
-            <button type="submit">Add Habit</button>
+        <h1></h1><a href="{% url 'add_habit' %}"> Add a new habit</a></h1>
         </div>
 </body>
 

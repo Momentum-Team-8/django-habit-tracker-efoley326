@@ -8,4 +8,5 @@ class HabitForm(ModelForm):
         fields = [
             'habit', 
             'amount',
+            'created_date',
         ]
