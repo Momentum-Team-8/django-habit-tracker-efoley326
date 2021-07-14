@@ -11,14 +11,17 @@
 <div>
     <h4 class="user_greeting">Hello,  {{ user }}!</h4>
 </div>
-    {% for habit in habits %}
+{% for habit in habits %}
 <div class="box">
-<p>Habit: {{habits.habit}}</p>
-<p>Duration: {{habits.amount}}</p>
-<p>Created on:{{habits.created_date}}</p>
+<br><br>
+<p>Habit: {{habit.habit}}</p>
+<p>Duration: {{habit.amount}}</p>
+<input type="hidden" name="id" value="{{  user  }}">
+<br><br>
 </div>
+    {% endfor %}
         <div>
-        <h1></h1><a href="{% url 'add_habit' %}"> Add a new habit</a></h1>
+        <h1><a href="{% url 'add_habit' %}"> Add a new habit</a></h1>
         </div>
 </body>
 

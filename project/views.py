@@ -8,13 +8,15 @@ from .models import HabitEntry
 # Create your views here.
 def homepage(request):
     if request.user.is_authenticated:
+        return redirect ('add_habit')
+    else:
         return render(request, "base.html")
+        
 
 @login_required
 def habit_list(request):
-    user = request.user
     habits = HabitEntry.objects.all()
-    return render (request, "project/habit_list.html")
+    return render(request, "project/habit_list.html", {"habits": habits})
 
 @login_required
 def add_habit(request):
@@ -22,9 +24,10 @@ def add_habit(request):
         form = HabitForm(request.POST)
         if form.is_valid():
             habit = form.save(commit=False)
+            habit.user = request.user
             habit.created_date = timezone.now()
             habit.save()
-            return redirect('add_habit')
+            return redirect(to='habit_list')
     else:
         form = HabitForm()
-    return render(request, 'project/add_habit.html', {'form': form})
+    return render (request, 'project/add_habit.html', {'form': form,})

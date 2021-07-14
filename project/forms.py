@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 from .models import HabitEntry
-
+from django import forms
 
 class HabitForm(ModelForm):
     class Meta:
@@ -8,5 +8,4 @@ class HabitForm(ModelForm):
         fields = [
             'habit', 
             'amount',
-            'created_date',
-        ]
+            ]
