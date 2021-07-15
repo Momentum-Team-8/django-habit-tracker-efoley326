@@ -17,6 +17,10 @@ class HabitEntry(models.Model):
     habit = models.CharField(max_length=255)
     amount = models.CharField(max_length=255, null=True, blank=True)
     created_date = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=['habit'], name='just_one_habit')
+            ]
 
     def __str__(self):
         return {self.habit}
