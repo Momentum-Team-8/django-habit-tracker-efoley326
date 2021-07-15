@@ -15,6 +15,7 @@ django-on-heroku = "*"
 gunicorn = "*"
 Django = "*"
 Werkzeug = "*"
+psycopg2 = "*"
 
 [requires]
 python_version = "3.9"
